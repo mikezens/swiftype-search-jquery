@@ -1,4 +1,16 @@
-(function ($) {
+(function(factory) {
+	'use strict';
+	if (typeof define === 'function' && define.amd) {
+		// AMD
+		define(['jquery'], factory);
+	} else if (typeof module !== 'undefined' && module.exports) {
+		// CommonJS
+		module.exports = factory(require('jquery'));
+	} else {
+		// Global
+		factory(jQuery);
+	}
+})(function ($) {
   var queryParser = function (a) {
       var i, p, b = {};
       if (a === "") {
@@ -302,4 +314,4 @@
     perPage: 10,
     spelling: 'strict'
   };
-})(jQuery);
+});
